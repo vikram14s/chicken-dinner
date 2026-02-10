@@ -1,0 +1,392 @@
+[
+  {
+    "id": "scn-001",
+    "title": "CO Open With AQo (30bb)",
+    "street": "preflop",
+    "position": "CO",
+    "effectiveStackBB": 30,
+    "heroHand": "AsQd",
+    "board": [],
+    "potSizeBB": 1.5,
+    "toCallBB": 0,
+    "villainRange": "Blinds defend moderately wide",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Open fold" },
+      { "id": "open-2.2", "action": "raise", "size": "2.2bb", "summary": "Standard open" },
+      { "id": "limp", "action": "call", "size": "1bb", "summary": "Open limp" }
+    ],
+    "bestActionId": "open-2.2",
+    "evDeltaByAction": { "fold": -1.6, "open-2.2": 1.9, "limp": -0.7 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "You avoid variance.", "whyRisky": "Too tight from CO; you miss profitable opens.", "lectureRefs": ["Lecture 3", "Lecture 5"] },
+      "open-2.2": { "whyGood": "Strong open in position with initiative.", "whyRisky": "Watch blind 3-bet frequencies.", "lectureRefs": ["Lecture 3", "Lecture 5"], "quickMath": "AQo dominates many calling hands in blinds." },
+      "limp": { "whyGood": "Keeps pot small.", "whyRisky": "Open limping gives up initiative and is discouraged in tournaments.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["preflop", "ranges", "position", "initiative"],
+    "difficulty": 1
+  },
+  {
+    "id": "scn-002",
+    "title": "BTN vs CO Open With 99 (25bb)",
+    "street": "preflop",
+    "position": "BTN",
+    "effectiveStackBB": 25,
+    "heroHand": "9h9c",
+    "board": [],
+    "potSizeBB": 3.5,
+    "toCallBB": 2.5,
+    "villainRange": "CO opens top 28%",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold pocket nines" },
+      { "id": "flat", "action": "call", "summary": "Call in position" },
+      { "id": "threebet-8", "action": "raise", "size": "8bb", "summary": "3-bet for value/protection" }
+    ],
+    "bestActionId": "threebet-8",
+    "evDeltaByAction": { "fold": -2.2, "flat": 0.5, "threebet-8": 1.2 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Avoids tough flops.", "whyRisky": "Too tight versus CO range with 99 on BTN.", "lectureRefs": ["Lecture 3"] },
+      "flat": { "whyGood": "Keeps dominated pairs in.", "whyRisky": "Invites squeezes and multi-way pots.", "lectureRefs": ["Lecture 4"] },
+      "threebet-8": { "whyGood": "Isolates and denies equity while keeping initiative.", "whyRisky": "Be ready to fold to a 4-bet jam from very tight players.", "lectureRefs": ["Lecture 4", "Lecture 5"] }
+    },
+    "conceptTags": ["3bet", "isolation", "preflop"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-003",
+    "title": "C-Bet Dry A-High Flop",
+    "street": "flop",
+    "position": "BTN",
+    "effectiveStackBB": 38,
+    "heroHand": "KsQs",
+    "board": ["Ad", "7c", "2h"],
+    "potSizeBB": 6.5,
+    "toCallBB": 0,
+    "villainRange": "BB defended wide",
+    "options": [
+      { "id": "check-back", "action": "check", "summary": "Take free turn" },
+      { "id": "cbet-small", "action": "bet", "size": "2bb", "summary": "Small c-bet" },
+      { "id": "cbet-large", "action": "bet", "size": "5bb", "summary": "Large c-bet" }
+    ],
+    "bestActionId": "cbet-small",
+    "evDeltaByAction": { "check-back": -0.3, "cbet-small": 0.9, "cbet-large": 0.1 },
+    "feedbackByAction": {
+      "check-back": { "whyGood": "Controls pot with no pair.", "whyRisky": "Misses high-fold-equity spot as preflop raiser.", "lectureRefs": ["Lecture 5"] },
+      "cbet-small": { "whyGood": "Standard range c-bet on favorable board.", "whyRisky": "Do not autopilot versus sticky opponents.", "lectureRefs": ["Lecture 5"], "quickMath": "Small sizing risks less while still folding out many misses." },
+      "cbet-large": { "whyGood": "Applies pressure.", "whyRisky": "Over-invests when a small size achieves similar folds.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["cbet", "flop", "bet-sizing", "fold-equity"],
+    "difficulty": 1
+  },
+  {
+    "id": "scn-004",
+    "title": "Flush Draw on Flop, Facing 2:1",
+    "street": "flop",
+    "position": "CO",
+    "effectiveStackBB": 22,
+    "heroHand": "AhJh",
+    "board": ["7h", "4h", "Ks"],
+    "potSizeBB": 12,
+    "toCallBB": 6,
+    "villainRange": "Top pair and overpairs, some bluffs",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold draw" },
+      { "id": "call", "action": "call", "summary": "Call with 9 clean outs" },
+      { "id": "jam", "action": "shove", "summary": "Semi-bluff shove" }
+    ],
+    "bestActionId": "call",
+    "evDeltaByAction": { "fold": -2.0, "call": 0.7, "jam": 0.3 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Avoids marginal spots.", "whyRisky": "Too conservative with strong draw and good pot odds.", "lectureRefs": ["Lecture 7"] },
+      "call": { "whyGood": "Rule-of-4 gives about 36% equity; call is profitable at 2:1.", "whyRisky": "Reverse implied odds if flush is not clean versus paired boards.", "lectureRefs": ["Lecture 7"], "quickMath": "Need 33%; with 9 outs on flop you have about 36%." },
+      "jam": { "whyGood": "Adds fold equity.", "whyRisky": "May force folds from worse and get called by strong made hands.", "lectureRefs": ["Lecture 5", "Lecture 7"] }
+    },
+    "conceptTags": ["outs", "pot-odds", "semi-bluff", "flop"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-005",
+    "title": "Turn Open-Ended Draw Facing Half Pot",
+    "street": "turn",
+    "position": "HJ",
+    "effectiveStackBB": 28,
+    "heroHand": "QsJs",
+    "board": ["9d", "Tc", "2s", "Kh"],
+    "potSizeBB": 20,
+    "toCallBB": 10,
+    "villainRange": "One pair heavy",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold turn" },
+      { "id": "call", "action": "call", "summary": "Call for river" },
+      { "id": "raise", "action": "raise", "size": "28bb", "summary": "Turn semi-bluff raise" }
+    ],
+    "bestActionId": "call",
+    "evDeltaByAction": { "fold": -1.2, "call": 0.4, "raise": 0.1 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Avoids committing chips.", "whyRisky": "You are often getting correct direct odds with 8 outs.", "lectureRefs": ["Lecture 7"] },
+      "call": { "whyGood": "Need 33%; with 8 outs and one card to come you have about 16%, so call is close only with implied odds.", "whyRisky": "Without implied odds this can become -EV.", "lectureRefs": ["Lecture 7"], "quickMath": "Pot odds alone are not enough; include implied odds before calling." },
+      "raise": { "whyGood": "Can win immediately.", "whyRisky": "Risky against ranges that continue strongly on turn.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["pot-odds", "implied-odds", "turn", "outs"],
+    "difficulty": 3
+  },
+  {
+    "id": "scn-006",
+    "title": "Short Stack 9bb on BTN With A5s",
+    "street": "preflop",
+    "position": "BTN",
+    "effectiveStackBB": 9,
+    "heroHand": "As5s",
+    "board": [],
+    "potSizeBB": 2.2,
+    "toCallBB": 2.2,
+    "villainRange": "CO opened 2.2bb from 22bb stack",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold to open" },
+      { "id": "call", "action": "call", "summary": "Flat-call" },
+      { "id": "jam", "action": "shove", "summary": "Shove 9bb" }
+    ],
+    "bestActionId": "jam",
+    "evDeltaByAction": { "fold": -1.0, "call": -0.8, "jam": 1.1 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Preserves stack.", "whyRisky": "Too tight at 9bb; you pass profitable shove windows.", "lectureRefs": ["Lecture 7"] },
+      "call": { "whyGood": "Sees a flop in position.", "whyRisky": "Calling at 9bb is usually dominated by shove/fold strategy.", "lectureRefs": ["Lecture 7"] },
+      "jam": { "whyGood": "Maximizes fold equity and realizes hand equity.", "whyRisky": "Be careful if opener is very tight from early position.", "lectureRefs": ["Lecture 7", "Lecture 6"] }
+    },
+    "conceptTags": ["short-stack", "shove-fold", "fold-equity"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-007",
+    "title": "BB Defend vs BTN Min-Open With KTo",
+    "street": "preflop",
+    "position": "BB",
+    "effectiveStackBB": 35,
+    "heroHand": "KhTd",
+    "board": [],
+    "potSizeBB": 2.5,
+    "toCallBB": 1,
+    "villainRange": "BTN opens wide",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold" },
+      { "id": "call", "action": "call", "summary": "Defend" },
+      { "id": "threebet", "action": "raise", "size": "8bb", "summary": "3-bet bluff/value mix" }
+    ],
+    "bestActionId": "call",
+    "evDeltaByAction": { "fold": -0.6, "call": 0.5, "threebet": 0.2 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Avoids dominated kicker trouble.", "whyRisky": "Overfolding BB versus BTN loses EV.", "lectureRefs": ["Lecture 3"] },
+      "call": { "whyGood": "Good pot odds and decent playability.", "whyRisky": "Postflop discipline required out of position.", "lectureRefs": ["Lecture 3", "Lecture 9"] },
+      "threebet": { "whyGood": "Can win preflop.", "whyRisky": "Inflates pot with medium-strength offsuit hand.", "lectureRefs": ["Lecture 4"] }
+    },
+    "conceptTags": ["preflop", "position", "pot-odds"],
+    "difficulty": 1
+  },
+  {
+    "id": "scn-008",
+    "title": "Value Bet Top Two on River",
+    "street": "river",
+    "position": "BTN",
+    "effectiveStackBB": 26,
+    "heroHand": "KcQd",
+    "board": ["Kh", "Qh", "8c", "3s", "2d"],
+    "potSizeBB": 24,
+    "toCallBB": 0,
+    "villainRange": "Kx, Qx, busted hearts",
+    "options": [
+      { "id": "check-back", "action": "check", "summary": "Check behind" },
+      { "id": "bet-8", "action": "bet", "size": "8bb", "summary": "Thin value" },
+      { "id": "bet-18", "action": "bet", "size": "18bb", "summary": "Polar overbet" }
+    ],
+    "bestActionId": "bet-8",
+    "evDeltaByAction": { "check-back": -0.1, "bet-8": 1.1, "bet-18": 0.2 },
+    "feedbackByAction": {
+      "check-back": { "whyGood": "Never gets raised.", "whyRisky": "Misses value from many one-pair bluff-catchers.", "lectureRefs": ["Lecture 5"] },
+      "bet-8": { "whyGood": "Clear value bet targeting Kx/Qx.", "whyRisky": "Plan fold versus large raises.", "lectureRefs": ["Lecture 5"] },
+      "bet-18": { "whyGood": "Max pressure on capped ranges.", "whyRisky": "Overbet narrows calls to better or strong bluff-catchers.", "lectureRefs": ["Lecture 5", "Lecture 9"] }
+    },
+    "conceptTags": ["value-bet", "bet-sizing", "river"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-009",
+    "title": "Bubble Spot: 15bb SB With ATo",
+    "street": "preflop",
+    "position": "SB",
+    "effectiveStackBB": 15,
+    "heroHand": "AhTc",
+    "board": [],
+    "potSizeBB": 2,
+    "toCallBB": 0.5,
+    "villainRange": "BTN folds often under ICM pressure",
+    "options": [
+      { "id": "complete", "action": "call", "summary": "Complete small blind" },
+      { "id": "raise-3", "action": "raise", "size": "3bb", "summary": "Raise/fold" },
+      { "id": "jam", "action": "shove", "summary": "ICM-aware shove" }
+    ],
+    "bestActionId": "jam",
+    "evDeltaByAction": { "complete": -0.6, "raise-3": 0.1, "jam": 0.9 },
+    "feedbackByAction": {
+      "complete": { "whyGood": "Keeps pot small.", "whyRisky": "Lets BB realize equity and wastes fold equity.", "lectureRefs": ["Lecture 6"] },
+      "raise-3": { "whyGood": "Can steal often.", "whyRisky": "Raise/folding 15bb can be costly.", "lectureRefs": ["Lecture 6", "Lecture 7"] },
+      "jam": { "whyGood": "Uses leverage and ICM pressure effectively.", "whyRisky": "Avoid versus very sticky opponents.", "lectureRefs": ["Lecture 6", "Lecture 7"] }
+    },
+    "conceptTags": ["icm", "bubble", "short-stack", "shove-fold"],
+    "difficulty": 3
+  },
+  {
+    "id": "scn-010",
+    "title": "Facing River Bet With Missed Draw",
+    "street": "river",
+    "position": "CO",
+    "effectiveStackBB": 32,
+    "heroHand": "Ah5h",
+    "board": ["Kd", "Tc", "4h", "2h", "Qs"],
+    "potSizeBB": 18,
+    "toCallBB": 9,
+    "villainRange": "Top pair+ and occasional bluffs",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold ace-high" },
+      { "id": "call", "action": "call", "summary": "Hero call" },
+      { "id": "raise-bluff", "action": "raise", "size": "28bb", "summary": "Turn hand into bluff" }
+    ],
+    "bestActionId": "fold",
+    "evDeltaByAction": { "fold": 0.2, "call": -0.7, "raise-bluff": -1.4 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Population under-bluffs this line.", "whyRisky": "Can be exploited if villain is over-bluffing.", "lectureRefs": ["Lecture 9"] },
+      "call": { "whyGood": "Catches bluffs.", "whyRisky": "Needs 33% win rate; usually not met here.", "lectureRefs": ["Lecture 7", "Lecture 9"] },
+      "raise-bluff": { "whyGood": "Can fold out weak value.", "whyRisky": "Represents narrow value and burns chips when called.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["river", "pot-odds", "bluff-catching"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-011",
+    "title": "UTG Open With KJo (40bb)",
+    "street": "preflop",
+    "position": "UTG",
+    "effectiveStackBB": 40,
+    "heroHand": "KcJd",
+    "board": [],
+    "potSizeBB": 1.5,
+    "toCallBB": 0,
+    "villainRange": "Table behind contains 3 aggressive players",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold KJo" },
+      { "id": "open-2.5", "action": "raise", "size": "2.5bb", "summary": "Open" },
+      { "id": "limp", "action": "call", "summary": "Open limp" }
+    ],
+    "bestActionId": "fold",
+    "evDeltaByAction": { "fold": 0.3, "open-2.5": -0.2, "limp": -1.0 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Disciplined UTG fold keeps range strong.", "whyRisky": "Too tight only if table is passive.", "lectureRefs": ["Lecture 3"] },
+      "open-2.5": { "whyGood": "Can steal blinds.", "whyRisky": "Dominated too often from early position.", "lectureRefs": ["Lecture 3"] },
+      "limp": { "whyGood": "Sees flop cheaply.", "whyRisky": "Open limping from UTG is a major leak.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["preflop", "ranges", "position"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-012",
+    "title": "Flop Top Pair Weak Kicker OOP",
+    "street": "flop",
+    "position": "BB",
+    "effectiveStackBB": 33,
+    "heroHand": "Qd8d",
+    "board": ["Qh", "7s", "3c"],
+    "potSizeBB": 7,
+    "toCallBB": 0,
+    "villainRange": "BTN c-bets high frequency",
+    "options": [
+      { "id": "lead", "action": "bet", "size": "5bb", "summary": "Donk lead" },
+      { "id": "check-call", "action": "call", "summary": "Check-call vs c-bet" },
+      { "id": "check-raise", "action": "raise", "size": "12bb", "summary": "Check-raise for protection" }
+    ],
+    "bestActionId": "check-call",
+    "evDeltaByAction": { "lead": -0.1, "check-call": 0.6, "check-raise": 0.2 },
+    "feedbackByAction": {
+      "lead": { "whyGood": "Denies equity immediately.", "whyRisky": "Hard to balance and often isolates against better queens.", "lectureRefs": ["Lecture 5"] },
+      "check-call": { "whyGood": "Keeps bluffs in and controls pot with medium strength.", "whyRisky": "Be careful on overcards and coordinated turns.", "lectureRefs": ["Lecture 5", "Lecture 9"] },
+      "check-raise": { "whyGood": "Punishes auto c-bets.", "whyRisky": "Builds large pot with fragile top pair.", "lectureRefs": ["Lecture 5"] }
+    },
+    "conceptTags": ["flop", "pot-control", "cbet-defense"],
+    "difficulty": 2
+  },
+  {
+    "id": "scn-013",
+    "title": "Turn Jam With Nut Flush Draw + Overcards",
+    "street": "turn",
+    "position": "CO",
+    "effectiveStackBB": 18,
+    "heroHand": "AhKh",
+    "board": ["Qs", "7h", "2h", "Td"],
+    "potSizeBB": 16,
+    "toCallBB": 0,
+    "villainRange": "One pair + draws",
+    "options": [
+      { "id": "check", "action": "check", "summary": "Take free card" },
+      { "id": "bet-6", "action": "bet", "size": "6bb", "summary": "Small stab" },
+      { "id": "jam", "action": "shove", "summary": "Max fold equity jam" }
+    ],
+    "bestActionId": "jam",
+    "evDeltaByAction": { "check": -0.2, "bet-6": 0.4, "jam": 1.0 },
+    "feedbackByAction": {
+      "check": { "whyGood": "Realizes equity cheaply.", "whyRisky": "Loses fold equity and lets villain realize for free too often.", "lectureRefs": ["Lecture 5"] },
+      "bet-6": { "whyGood": "Pressures weak pairs.", "whyRisky": "Small size can induce profitable calls.", "lectureRefs": ["Lecture 5"] },
+      "jam": { "whyGood": "Combines strong draw equity with maximum fold equity.", "whyRisky": "Variance is high, but EV is strong.", "lectureRefs": ["Lecture 5", "Lecture 7"] }
+    },
+    "conceptTags": ["semi-bluff", "fold-equity", "turn", "outs"],
+    "difficulty": 3
+  },
+  {
+    "id": "scn-014",
+    "title": "Final Table Ladder Spot With 12bb",
+    "street": "preflop",
+    "position": "HJ",
+    "effectiveStackBB": 12,
+    "heroHand": "7s7d",
+    "board": [],
+    "potSizeBB": 1.5,
+    "toCallBB": 0,
+    "villainRange": "Two shorter stacks remain at table",
+    "options": [
+      { "id": "fold", "action": "fold", "summary": "Fold for ladder" },
+      { "id": "open-jam", "action": "shove", "summary": "Open jam 12bb" },
+      { "id": "min-open", "action": "raise", "size": "2bb", "summary": "Min-open then decide" }
+    ],
+    "bestActionId": "open-jam",
+    "evDeltaByAction": { "fold": 0.1, "open-jam": 0.7, "min-open": -0.2 },
+    "feedbackByAction": {
+      "fold": { "whyGood": "Survival has value near pay jumps.", "whyRisky": "Over-folding surrenders too much chip EV.", "lectureRefs": ["Lecture 6"] },
+      "open-jam": { "whyGood": "Balances ICM and fold equity with medium pair.", "whyRisky": "Avoid if players behind are extremely tight and short stacks are about to bust.", "lectureRefs": ["Lecture 6", "Lecture 7"] },
+      "min-open": { "whyGood": "Looks standard.", "whyRisky": "Creates awkward raise/fold spot at 12bb.", "lectureRefs": ["Lecture 7"] }
+    },
+    "conceptTags": ["icm", "short-stack", "shove-fold"],
+    "difficulty": 3
+  },
+  {
+    "id": "scn-015",
+    "title": "Mental Game Reset After Bad Beat",
+    "street": "preflop",
+    "position": "CO",
+    "effectiveStackBB": 24,
+    "heroHand": "9c6c",
+    "board": [],
+    "potSizeBB": 1.5,
+    "toCallBB": 0,
+    "villainRange": "Standard table",
+    "options": [
+      { "id": "open-wide", "action": "raise", "size": "3bb", "summary": "Open despite frustration" },
+      { "id": "fold", "action": "fold", "summary": "Pass and reset" },
+      { "id": "open-jam", "action": "shove", "summary": "Emotional shove" }
+    ],
+    "bestActionId": "fold",
+    "evDeltaByAction": { "open-wide": -0.4, "fold": 0.3, "open-jam": -3.0 },
+    "feedbackByAction": {
+      "open-wide": { "whyGood": "Keeps aggression high.", "whyRisky": "Can drift into tilt-driven spew with weak offsuit connectors.", "lectureRefs": ["Lecture 8"] },
+      "fold": { "whyGood": "Process-first discipline prevents tilt cascades.", "whyRisky": "Do not become overly passive long term.", "lectureRefs": ["Lecture 8"] },
+      "open-jam": { "whyGood": "None in this spot.", "whyRisky": "Classic tilt leak that destroys tournament equity.", "lectureRefs": ["Lecture 8"] }
+    },
+    "conceptTags": ["mental-game", "tilt-control", "preflop"],
+    "difficulty": 1
+  }
+]

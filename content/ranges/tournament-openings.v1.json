@@ -1,0 +1,26 @@
+{
+  "notes": "Baseline opening guidance for training spots, not solver-perfect charts.",
+  "rangesByStack": {
+    "40+": {
+      "UTG": "77+, AJs+, KQs, AQo+",
+      "HJ": "66+, ATs+, KJs+, QJs, AJo+",
+      "CO": "55+, A9s+, KTs+, QTs+, JTs, ATo+, KQo",
+      "BTN": "22+, A2s+, K7s+, Q8s+, J8s+, T8s+, 97s+, A8o+, KTo+, QTo+, JTo"
+    },
+    "20-40": {
+      "UTG": "88+, AJs+, KQs, AQo+",
+      "HJ": "77+, ATs+, KJs+, QJs, AJo+",
+      "CO": "66+, A8s+, KTs+, QTs+, JTs, ATo+, KQo",
+      "BTN": "22+, A2s+, K8s+, Q9s+, J9s+, T9s, 98s, A8o+, KTo+, QTo+"
+    },
+    "10-20": {
+      "UTG": "99+, AQs+, AKo",
+      "HJ": "88+, AJs+, KQs, AQo+",
+      "CO": "66+, ATs+, KJs+, QJs, AJo+, KQo",
+      "BTN": "22+, A2s+, K8s+, Q9s+, J9s+, T8s+, A8o+, KTo+, QTo+, JTo"
+    },
+    "<10": {
+      "all": "Use push/fold charts; prioritize fold equity and blockers."
+    }
+  }
+}
