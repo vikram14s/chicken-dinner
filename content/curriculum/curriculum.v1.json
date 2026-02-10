@@ -1,0 +1,978 @@
+{
+  "schemaVersion": 1,
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Poker Basics",
+      "description": "Learn the fundamental building blocks of poker before playing any hands.",
+      "lessonIds": ["lesson-1", "lesson-2", "lesson-3", "lesson-4", "lesson-5"]
+    },
+    {
+      "id": "unit-2",
+      "title": "Preflop Fundamentals",
+      "description": "Master starting hand selection, positional opens, and raise sizing.",
+      "lessonIds": ["lesson-6", "lesson-7", "lesson-8"]
+    },
+    {
+      "id": "unit-3",
+      "title": "Math Foundations",
+      "description": "Build your poker math toolkit: pot odds, counting outs, and the rule of 4/2.",
+      "lessonIds": ["lesson-9", "lesson-10", "lesson-11"]
+    },
+    {
+      "id": "unit-4",
+      "title": "Postflop Play",
+      "description": "Navigate flop, turn, and river decisions with confidence.",
+      "lessonIds": ["lesson-12", "lesson-13", "lesson-14"]
+    },
+    {
+      "id": "unit-5",
+      "title": "Tournament Strategy",
+      "description": "Adapt your play to tournament dynamics, stack depths, and ICM pressure.",
+      "lessonIds": ["lesson-15", "lesson-16", "lesson-17"]
+    },
+    {
+      "id": "unit-6",
+      "title": "Advanced",
+      "description": "Sharpen advanced skills: 3-betting, bluff catching, and mental game.",
+      "lessonIds": ["lesson-18", "lesson-19", "lesson-20"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "unitId": "unit-1",
+      "order": 1,
+      "title": "Hand Rankings",
+      "subtitle": "Know which hands beat which",
+      "phase": {
+        "teach": {
+          "title": "Hand Rankings",
+          "body": "In poker, the goal is to make the best five-card hand. Hands are ranked from highest to lowest. Memorize this order — it's the foundation of every decision.",
+          "keyPoints": [
+            "Royal Flush is the best possible hand (A K Q J T, all same suit)",
+            "Full House beats a Flush, but loses to Four of a Kind",
+            "High Card is the weakest — when you have nothing, your highest card plays"
+          ],
+          "visualType": "hand-rankings"
+        },
+        "quiz": [
+          {
+            "id": "q-1-1",
+            "question": "Which hand beats a Full House?",
+            "options": [
+              { "label": "Flush", "correct": false },
+              { "label": "Four of a Kind", "correct": true },
+              { "label": "Straight", "correct": false },
+              { "label": "Two Pair", "correct": false }
+            ],
+            "explanation": "Four of a Kind ranks above Full House. The ranking goes: Four of a Kind > Full House > Flush."
+          },
+          {
+            "id": "q-1-2",
+            "question": "What beats a Straight?",
+            "options": [
+              { "label": "Three of a Kind", "correct": false },
+              { "label": "Two Pair", "correct": false },
+              { "label": "Flush", "correct": true },
+              { "label": "High Card", "correct": false }
+            ],
+            "explanation": "A Flush (five cards of the same suit) beats a Straight (five in a row, mixed suits)."
+          }
+        ],
+        "play": null
+      }
+    },
+    {
+      "id": "lesson-2",
+      "unitId": "unit-1",
+      "order": 2,
+      "title": "The Four Streets",
+      "subtitle": "How a hand plays out",
+      "phase": {
+        "teach": {
+          "title": "The Four Streets",
+          "body": "A hand of Texas Hold'em plays out over four rounds of betting, called 'streets'. Community cards are dealt face-up on the table for everyone to use.",
+          "keyPoints": [
+            "Preflop: Each player gets 2 private cards, then the first betting round",
+            "Flop: 3 community cards are dealt, then the second betting round",
+            "Turn and River: One more card each, with a betting round after each"
+          ],
+          "visualType": "four-streets"
+        },
+        "quiz": [
+          {
+            "id": "q-2-1",
+            "question": "How many community cards are on the board after the flop?",
+            "options": [
+              { "label": "1", "correct": false },
+              { "label": "3", "correct": true },
+              { "label": "5", "correct": false },
+              { "label": "2", "correct": false }
+            ],
+            "explanation": "The flop deals 3 community cards at once. The turn adds a 4th, and the river adds the 5th."
+          },
+          {
+            "id": "q-2-2",
+            "question": "How many private cards does each player receive?",
+            "options": [
+              { "label": "1", "correct": false },
+              { "label": "2", "correct": true },
+              { "label": "3", "correct": false },
+              { "label": "5", "correct": false }
+            ],
+            "explanation": "Each player gets exactly 2 private (hole) cards that only they can see."
+          }
+        ],
+        "play": null
+      }
+    },
+    {
+      "id": "lesson-3",
+      "unitId": "unit-1",
+      "order": 3,
+      "title": "Table Positions",
+      "subtitle": "Where you sit matters",
+      "phase": {
+        "teach": {
+          "title": "Table Positions",
+          "body": "Where you sit relative to the dealer button determines when you act. Later positions are stronger because you see what others do first.",
+          "keyPoints": [
+            "UTG (Under the Gun) acts first — play tight here",
+            "BTN (Button) acts last — the most powerful position",
+            "SB and BB post forced bets (blinds) before seeing their cards"
+          ],
+          "visualType": "table-positions"
+        },
+        "quiz": [
+          {
+            "id": "q-3-1",
+            "question": "Which position acts last after the flop?",
+            "options": [
+              { "label": "Small Blind (SB)", "correct": false },
+              { "label": "Under the Gun (UTG)", "correct": false },
+              { "label": "Button (BTN)", "correct": true },
+              { "label": "Big Blind (BB)", "correct": false }
+            ],
+            "explanation": "The Button acts last on every postflop street, giving maximum information before deciding."
+          },
+          {
+            "id": "q-3-2",
+            "question": "Why is late position considered stronger?",
+            "options": [
+              { "label": "You get better cards", "correct": false },
+              { "label": "You see others act first", "correct": true },
+              { "label": "You pay less blinds", "correct": false },
+              { "label": "You can't be raised", "correct": false }
+            ],
+            "explanation": "Late position lets you see what opponents do before you decide, giving you an informational advantage."
+          }
+        ],
+        "play": null
+      }
+    },
+    {
+      "id": "lesson-4",
+      "unitId": "unit-1",
+      "order": 4,
+      "title": "Card Notation",
+      "subtitle": "Reading poker shorthand",
+      "phase": {
+        "teach": {
+          "title": "Card Notation",
+          "body": "In this app, cards are written as two characters: a rank and a suit. For example, 'As' means Ace of Spades. Learning this shorthand makes scenarios quick to read.",
+          "keyPoints": [
+            "Ranks: A K Q J T 9 8 7 6 5 4 3 2 (T = Ten)",
+            "Suits: s (Spades), h (Hearts), d (Diamonds), c (Clubs)",
+            "Example: Kh = King of Hearts, Tc = Ten of Clubs"
+          ],
+          "visualType": "card-notation"
+        },
+        "quiz": [
+          {
+            "id": "q-4-1",
+            "question": "What card does 'Jd' represent?",
+            "options": [
+              { "label": "Jack of Diamonds", "correct": true },
+              { "label": "Jack of Spades", "correct": false },
+              { "label": "Ten of Diamonds", "correct": false },
+              { "label": "Queen of Diamonds", "correct": false }
+            ],
+            "explanation": "J = Jack, d = Diamonds. So Jd is the Jack of Diamonds."
+          },
+          {
+            "id": "q-4-2",
+            "question": "What does 'Ts' mean?",
+            "options": [
+              { "label": "Two of Spades", "correct": false },
+              { "label": "Ten of Spades", "correct": true },
+              { "label": "Three of Spades", "correct": false },
+              { "label": "Ten of Suits", "correct": false }
+            ],
+            "explanation": "T stands for Ten (not Two). s = Spades. So Ts is the Ten of Spades."
+          }
+        ],
+        "play": null
+      }
+    },
+    {
+      "id": "lesson-5",
+      "unitId": "unit-1",
+      "order": 5,
+      "title": "Big Blinds & Stack Depth",
+      "subtitle": "Measuring chips that matter",
+      "phase": {
+        "teach": {
+          "title": "Big Blinds & Stack Depth",
+          "body": "In tournaments, we measure everything in 'big blinds' (bb). If the big blind is 100 chips and you have 3,000 chips, your stack is 30bb. Short stacks (under 15bb) play very differently from deep stacks (50bb+).",
+          "keyPoints": [
+            "Stack size = your chips divided by the big blind",
+            "50bb+ is deep: lots of room for postflop play",
+            "Under 15bb is short: push/fold territory"
+          ],
+          "visualType": "stack-depth"
+        },
+        "quiz": [
+          {
+            "id": "q-5-1",
+            "question": "If the big blind is 200 and you have 6,000 chips, what is your stack in bb?",
+            "options": [
+              { "label": "20bb", "correct": false },
+              { "label": "30bb", "correct": true },
+              { "label": "60bb", "correct": false },
+              { "label": "12bb", "correct": false }
+            ],
+            "explanation": "6,000 / 200 = 30 big blinds. This is a medium stack with standard tournament play options."
+          },
+          {
+            "id": "q-5-2",
+            "question": "At what stack depth should you switch to push/fold strategy?",
+            "options": [
+              { "label": "Under 50bb", "correct": false },
+              { "label": "Under 30bb", "correct": false },
+              { "label": "Under 15bb", "correct": true },
+              { "label": "Under 5bb", "correct": false }
+            ],
+            "explanation": "Under 15bb, your stack is too short for standard raises. Push/fold simplifies decisions and maximizes fold equity."
+          }
+        ],
+        "play": null
+      }
+    },
+    {
+      "id": "lesson-6",
+      "unitId": "unit-2",
+      "order": 6,
+      "title": "Starting Hands",
+      "subtitle": "Which hands to play",
+      "phase": {
+        "teach": {
+          "title": "Starting Hand Selection",
+          "body": "Not all hands are created equal. Premium hands like AA, KK, and AKs are strong from any position. Speculative hands like suited connectors need position and deep stacks to be profitable. Learning which hands to play — and which to fold — is the first step to winning poker.",
+          "keyPoints": [
+            "Premium hands (AA, KK, QQ, AKs) can be played from any position",
+            "Suited hands have more value than offsuit — flush potential adds equity",
+            "Fold most hands from early position; widen your range in late position"
+          ],
+          "visualType": "range-chart"
+        },
+        "quiz": [
+          {
+            "id": "q-6-1",
+            "question": "From Under the Gun, which of these should you typically open?",
+            "options": [
+              { "label": "AA", "correct": true },
+              { "label": "9c6c", "correct": false },
+              { "label": "KJo", "correct": false },
+              { "label": "T8s", "correct": false }
+            ],
+            "explanation": "AA is a premium hand playable from any position. The other hands are too weak for UTG where you'll face many players behind."
+          },
+          {
+            "id": "q-6-2",
+            "question": "Why are suited hands stronger than offsuit?",
+            "options": [
+              { "label": "They rank higher in hand rankings", "correct": false },
+              { "label": "They can make flushes, adding equity", "correct": true },
+              { "label": "They always win at showdown", "correct": false },
+              { "label": "They are easier to read", "correct": false }
+            ],
+            "explanation": "Suited hands can make flushes, which gives them extra equity compared to their offsuit counterparts."
+          }
+        ],
+        "play": {
+          "conceptTags": ["preflop", "ranges", "position"],
+          "difficulty": [1, 2],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-7",
+      "unitId": "unit-2",
+      "order": 7,
+      "title": "Position Opens",
+      "subtitle": "Opening ranges by seat",
+      "phase": {
+        "teach": {
+          "title": "Opening by Position",
+          "body": "Your opening range should widen as you get closer to the Button. From UTG, play only premium hands. From the Cutoff and Button, you can open much wider because fewer players remain to act behind you and you'll have position postflop.",
+          "keyPoints": [
+            "UTG: ~12% of hands — only strong pairs and broadways",
+            "CO: ~25% of hands — add suited connectors and weaker broadways",
+            "BTN: ~40% of hands — widest opening range at the table"
+          ],
+          "visualType": "range-chart"
+        },
+        "quiz": [
+          {
+            "id": "q-7-1",
+            "question": "Which position should have the widest opening range?",
+            "options": [
+              { "label": "UTG", "correct": false },
+              { "label": "Hijack", "correct": false },
+              { "label": "Button", "correct": true },
+              { "label": "Big Blind", "correct": false }
+            ],
+            "explanation": "The Button opens widest because only the blinds remain to act. You'll have position postflop against anyone who calls."
+          },
+          {
+            "id": "q-7-2",
+            "question": "Should you open KJo from UTG at a 6-max table?",
+            "options": [
+              { "label": "Yes, it's a strong hand", "correct": false },
+              { "label": "No, it's too easily dominated from early position", "correct": true },
+              { "label": "Only if you're short stacked", "correct": false },
+              { "label": "Only as a limp", "correct": false }
+            ],
+            "explanation": "KJo is dominated by KQ, KA, and stronger hands that players behind you could hold. It's a fold from UTG."
+          }
+        ],
+        "play": {
+          "conceptTags": ["preflop", "ranges", "position"],
+          "difficulty": [1, 2],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-8",
+      "unitId": "unit-2",
+      "order": 8,
+      "title": "Raise Sizing",
+      "subtitle": "How much to bet preflop",
+      "phase": {
+        "teach": {
+          "title": "Preflop Raise Sizing",
+          "body": "Standard tournament opens are 2-2.5 big blinds. Larger opens commit more chips but fold out fewer additional hands. In tournaments, preserving chips is critical — so small, efficient sizing is usually optimal.",
+          "keyPoints": [
+            "Standard open: 2-2.5bb from most positions",
+            "Avoid limping — it gives up initiative and invites multi-way pots",
+            "With short stacks (under 15bb), either shove or fold instead of min-raising"
+          ],
+          "visualType": "odds-table"
+        },
+        "quiz": [
+          {
+            "id": "q-8-1",
+            "question": "What is a standard tournament open raise size?",
+            "options": [
+              { "label": "1bb (min-raise)", "correct": false },
+              { "label": "2-2.5bb", "correct": true },
+              { "label": "4-5bb", "correct": false },
+              { "label": "All-in", "correct": false }
+            ],
+            "explanation": "2-2.5bb is the standard because it risks less while still generating folds and building a pot with initiative."
+          },
+          {
+            "id": "q-8-2",
+            "question": "Why should you avoid open limping in tournaments?",
+            "options": [
+              { "label": "It's against the rules", "correct": false },
+              { "label": "It gives up initiative and invites multi-way pots", "correct": true },
+              { "label": "It always loses money", "correct": false },
+              { "label": "It takes too long", "correct": false }
+            ],
+            "explanation": "Limping gives up the betting lead and lets multiple opponents see the flop cheaply, making it harder to win the pot."
+          }
+        ],
+        "play": {
+          "conceptTags": ["preflop", "initiative"],
+          "difficulty": [1],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-9",
+      "unitId": "unit-3",
+      "order": 9,
+      "title": "Pot Odds",
+      "subtitle": "Is the price right?",
+      "phase": {
+        "teach": {
+          "title": "Pot Odds",
+          "body": "Pot odds tell you the price you're getting on a call. If the pot is 12bb and you need to call 6bb, you're getting 2:1 (or 33%). If your hand wins more than 33% of the time, calling is profitable long-term — regardless of any single result.",
+          "keyPoints": [
+            "Pot odds = amount to call / (pot + amount to call)",
+            "Compare pot odds to your hand's equity (win probability)",
+            "If your equity exceeds the pot odds requirement, calling is +EV"
+          ],
+          "visualType": "odds-table"
+        },
+        "quiz": [
+          {
+            "id": "q-9-1",
+            "question": "The pot is 20bb and villain bets 10bb. What pot odds are you getting?",
+            "options": [
+              { "label": "25% (3:1)", "correct": false },
+              { "label": "33% (2:1)", "correct": true },
+              { "label": "50% (1:1)", "correct": false },
+              { "label": "20% (4:1)", "correct": false }
+            ],
+            "explanation": "You call 10bb into a pot of 30bb (20 + 10). 10/30 = 33%. You need at least 33% equity to call profitably."
+          },
+          {
+            "id": "q-9-2",
+            "question": "If you need 25% equity to call and your hand has 30% equity, should you call?",
+            "options": [
+              { "label": "Yes, you have more equity than needed", "correct": true },
+              { "label": "No, it's too risky", "correct": false },
+              { "label": "Only if you have position", "correct": false },
+              { "label": "Fold and wait for a better spot", "correct": false }
+            ],
+            "explanation": "Your equity (30%) exceeds the required equity (25%), so calling is mathematically profitable in the long run."
+          }
+        ],
+        "play": {
+          "conceptTags": ["pot-odds"],
+          "difficulty": [1, 2],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-10",
+      "unitId": "unit-3",
+      "order": 10,
+      "title": "Counting Outs",
+      "subtitle": "Cards that complete your hand",
+      "phase": {
+        "teach": {
+          "title": "Counting Outs",
+          "body": "An 'out' is a card that improves your hand to a likely winner. With a flush draw, you have 9 outs (13 cards of your suit minus the 4 you can see). With an open-ended straight draw, you have 8 outs. Counting outs is essential for calculating whether to continue in a hand.",
+          "keyPoints": [
+            "Flush draw: 9 outs (13 of suit - 4 visible)",
+            "Open-ended straight draw: 8 outs",
+            "Gutshot straight draw: 4 outs"
+          ],
+          "visualType": "odds-table"
+        },
+        "quiz": [
+          {
+            "id": "q-10-1",
+            "question": "How many outs does a flush draw have?",
+            "options": [
+              { "label": "4", "correct": false },
+              { "label": "8", "correct": false },
+              { "label": "9", "correct": true },
+              { "label": "13", "correct": false }
+            ],
+            "explanation": "There are 13 cards of each suit. With 4 of your suit visible (2 in your hand + 2 on the board), you have 13 - 4 = 9 outs."
+          },
+          {
+            "id": "q-10-2",
+            "question": "You hold 8-9 and the board shows 6-7-K. How many outs for a straight?",
+            "options": [
+              { "label": "4 (gutshot)", "correct": false },
+              { "label": "8 (open-ended)", "correct": true },
+              { "label": "9 (flush draw)", "correct": false },
+              { "label": "2 (pair)", "correct": false }
+            ],
+            "explanation": "Any 5 (four cards) or any T (four cards) completes your straight, giving you 8 outs — an open-ended straight draw."
+          }
+        ],
+        "play": {
+          "conceptTags": ["outs", "pot-odds"],
+          "difficulty": [2],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-11",
+      "unitId": "unit-3",
+      "order": 11,
+      "title": "Rule of 4/2",
+      "subtitle": "Quick equity math",
+      "phase": {
+        "teach": {
+          "title": "The Rule of 4 and 2",
+          "body": "To quickly estimate your draw's equity: multiply your outs by 4 on the flop (two cards to come) or by 2 on the turn (one card to come). This gives an approximate win percentage. For example, a flush draw (9 outs) on the flop: 9 × 4 = 36% equity.",
+          "keyPoints": [
+            "Flop: outs × 4 = approximate equity % (two cards to come)",
+            "Turn: outs × 2 = approximate equity % (one card to come)",
+            "Compare this equity to pot odds to decide whether to call"
+          ],
+          "visualType": "odds-table"
+        },
+        "quiz": [
+          {
+            "id": "q-11-1",
+            "question": "You have a flush draw (9 outs) on the flop. What is your approximate equity?",
+            "options": [
+              { "label": "18%", "correct": false },
+              { "label": "27%", "correct": false },
+              { "label": "36%", "correct": true },
+              { "label": "45%", "correct": false }
+            ],
+            "explanation": "On the flop, use the rule of 4: 9 outs × 4 = 36% approximate equity."
+          },
+          {
+            "id": "q-11-2",
+            "question": "On the turn with 8 outs, what's your approximate equity?",
+            "options": [
+              { "label": "8%", "correct": false },
+              { "label": "16%", "correct": true },
+              { "label": "32%", "correct": false },
+              { "label": "24%", "correct": false }
+            ],
+            "explanation": "On the turn, use the rule of 2: 8 outs × 2 = 16% approximate equity. Only one card remains."
+          }
+        ],
+        "play": {
+          "conceptTags": ["pot-odds", "outs"],
+          "difficulty": [2, 3],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-12",
+      "unitId": "unit-4",
+      "order": 12,
+      "title": "Continuation Betting",
+      "subtitle": "Following up your preflop raise",
+      "phase": {
+        "teach": {
+          "title": "Continuation Betting (C-Betting)",
+          "body": "When you raised preflop and get called, you have the initiative. A continuation bet (c-bet) on the flop leverages this — opponents expect you to have a strong range. C-bet often on dry boards (like A-7-2) where your range advantage is clear, but check back on wet, connected boards.",
+          "keyPoints": [
+            "C-bet works best heads-up and in position",
+            "Dry boards (A-7-2, K-8-3) favor the preflop aggressor",
+            "Use small sizing (25-33% pot) for range c-bets on favorable boards"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-12-1",
+            "question": "You raised preflop from BTN and BB called. Flop is A-7-2 rainbow. What should you do?",
+            "options": [
+              { "label": "Check and give up", "correct": false },
+              { "label": "C-bet small (about 1/3 pot)", "correct": true },
+              { "label": "Bet full pot", "correct": false },
+              { "label": "Check-raise if BB bets", "correct": false }
+            ],
+            "explanation": "This dry, ace-high flop heavily favors your preflop raising range. A small c-bet puts maximum pressure with minimal risk."
+          },
+          {
+            "id": "q-12-2",
+            "question": "On which flop should you c-bet LESS often?",
+            "options": [
+              { "label": "A-7-2 rainbow", "correct": false },
+              { "label": "K-8-3 rainbow", "correct": false },
+              { "label": "8-7-6 two-tone", "correct": true },
+              { "label": "Q-4-2 rainbow", "correct": false }
+            ],
+            "explanation": "8-7-6 two-tone is a wet, connected board that hits the caller's range well. C-betting into this board is less effective."
+          }
+        ],
+        "play": {
+          "conceptTags": ["cbet", "flop", "bet-sizing"],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-13",
+      "unitId": "unit-4",
+      "order": 13,
+      "title": "Bet Sizing",
+      "subtitle": "How much to put in the pot",
+      "phase": {
+        "teach": {
+          "title": "Bet Sizing Strategy",
+          "body": "Every bet needs a purpose. Value bets extract chips from worse hands, while bluffs fold out better ones. Your sizing should match your goal: small bets for thin value or range c-bets, large bets for polarized value/bluff spots.",
+          "keyPoints": [
+            "Small sizing (25-40% pot): good for range bets and thin value",
+            "Medium sizing (50-75% pot): standard for value and semi-bluffs",
+            "Large sizing (75-125% pot): polarized — very strong hands or bluffs"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-13-1",
+            "question": "You have top two pair on the river. The pot is 24bb. What sizing targets one-pair bluff-catchers?",
+            "options": [
+              { "label": "2bb (tiny)", "correct": false },
+              { "label": "8bb (1/3 pot, thin value)", "correct": true },
+              { "label": "24bb (full pot)", "correct": false },
+              { "label": "Check back", "correct": false }
+            ],
+            "explanation": "A 1/3 pot bet targets one-pair hands that would fold to larger sizes. You want calls from worse hands."
+          },
+          {
+            "id": "q-13-2",
+            "question": "What's the main risk of betting too large with a medium-strength hand?",
+            "options": [
+              { "label": "You win too much", "correct": false },
+              { "label": "Only better hands call, worse hands fold", "correct": true },
+              { "label": "The pot gets too small", "correct": false },
+              { "label": "You run out of time", "correct": false }
+            ],
+            "explanation": "Large bets polarize the situation — opponents fold weak hands and only continue with strong ones, which is bad for medium-strength value."
+          }
+        ],
+        "play": {
+          "conceptTags": ["bet-sizing", "value-bet"],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-14",
+      "unitId": "unit-4",
+      "order": 14,
+      "title": "Value vs Bluff",
+      "subtitle": "Why are you betting?",
+      "phase": {
+        "teach": {
+          "title": "Value Betting vs Bluffing",
+          "body": "Before putting chips in, always ask: 'Am I betting for value or as a bluff?' Value bets want calls from worse hands. Bluffs want better hands to fold. Mixing both makes you unpredictable. A semi-bluff combines bluffing with a drawing hand that can improve.",
+          "keyPoints": [
+            "Value bet: you want to be called by worse hands",
+            "Bluff: you want better hands to fold",
+            "Semi-bluff: you bluff with a draw that can improve if called"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-14-1",
+            "question": "You have a nut flush draw on the flop and bet big. What type of bet is this?",
+            "options": [
+              { "label": "Pure value bet", "correct": false },
+              { "label": "Semi-bluff", "correct": true },
+              { "label": "Blocking bet", "correct": false },
+              { "label": "Pot control", "correct": false }
+            ],
+            "explanation": "You're betting with a draw — you'd like opponents to fold, but if called, you have strong equity to improve to the best hand."
+          },
+          {
+            "id": "q-14-2",
+            "question": "You have top set on the river. What kind of bet should you make?",
+            "options": [
+              { "label": "A bluff", "correct": false },
+              { "label": "A semi-bluff", "correct": false },
+              { "label": "A value bet", "correct": true },
+              { "label": "No bet — always check strong hands", "correct": false }
+            ],
+            "explanation": "With a very strong hand, you want to be called. This is a pure value bet — size it to maximize what worse hands will pay."
+          }
+        ],
+        "play": {
+          "conceptTags": ["value-bet", "semi-bluff", "fold-equity"],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-15",
+      "unitId": "unit-5",
+      "order": 15,
+      "title": "Stack Depth in Tournaments",
+      "subtitle": "Adjusting to your stack size",
+      "phase": {
+        "teach": {
+          "title": "Stack Depth Strategy",
+          "body": "Your stack size dictates your strategy. With 50bb+ you can play a full postflop game. At 25-50bb, tighten up and avoid speculative plays. Below 15bb, simplify to push/fold — standard raises leave you pot-committed anyway.",
+          "keyPoints": [
+            "Deep (50bb+): full range of plays, speculative hands profitable",
+            "Medium (25-50bb): tighten ranges, avoid marginal spots",
+            "Short (under 15bb): push/fold only — maximize fold equity"
+          ],
+          "visualType": "stack-depth"
+        },
+        "quiz": [
+          {
+            "id": "q-15-1",
+            "question": "With 12bb, you pick up 77 in the Hijack. What's your best play?",
+            "options": [
+              { "label": "Open to 2.5bb", "correct": false },
+              { "label": "Open-shove 12bb", "correct": true },
+              { "label": "Limp and see a flop", "correct": false },
+              { "label": "Fold and wait", "correct": false }
+            ],
+            "explanation": "At 12bb, a standard raise commits too many chips. Shoving maximizes fold equity and avoids tough postflop decisions."
+          },
+          {
+            "id": "q-15-2",
+            "question": "Why is open-limping especially bad with a short stack?",
+            "options": [
+              { "label": "It's always illegal", "correct": false },
+              { "label": "It wastes fold equity and invites squeezes", "correct": true },
+              { "label": "It confuses the dealer", "correct": false },
+              { "label": "Short stacks can't limp", "correct": false }
+            ],
+            "explanation": "Short stacks need to leverage fold equity. Limping wastes this advantage and lets others squeeze you out of the pot."
+          }
+        ],
+        "play": {
+          "conceptTags": ["short-stack", "shove-fold"],
+          "difficulty": [2, 3],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-16",
+      "unitId": "unit-5",
+      "order": 16,
+      "title": "Push/Fold",
+      "subtitle": "All-in or fold poker",
+      "phase": {
+        "teach": {
+          "title": "Push/Fold Strategy",
+          "body": "Below 10-12bb, your only moves should be all-in or fold. This isn't oversimplified — it's mathematically optimal. A min-raise at 10bb commits nearly a quarter of your stack, and you can't fold to a re-raise. Push/fold charts exist for every position and stack depth.",
+          "keyPoints": [
+            "At 10bb from BTN: shove a wide range (~40% of hands)",
+            "At 10bb from UTG: only shove premium hands (~15%)",
+            "Fold equity matters more than hand strength when short"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-16-1",
+            "question": "You have 9bb on the Button with A5s. Everyone folds to you. What should you do?",
+            "options": [
+              { "label": "Fold", "correct": false },
+              { "label": "Min-raise to 2bb", "correct": false },
+              { "label": "Shove all-in", "correct": true },
+              { "label": "Limp", "correct": false }
+            ],
+            "explanation": "A5s is well within BTN shove range at 9bb. You have fold equity against the blinds and good equity if called."
+          },
+          {
+            "id": "q-16-2",
+            "question": "Why is fold equity more important than hand strength when short-stacked?",
+            "options": [
+              { "label": "Your cards don't matter at all", "correct": false },
+              { "label": "Winning the blinds/antes uncontested adds significant %s to your stack", "correct": true },
+              { "label": "Short stacks always lose at showdown", "correct": false },
+              { "label": "Hand rankings change when short", "correct": false }
+            ],
+            "explanation": "At 9bb, winning 1.5bb in blinds/antes is a 17% stack increase. That's huge — and you don't need to see a flop."
+          }
+        ],
+        "play": {
+          "conceptTags": ["short-stack", "shove-fold", "fold-equity"],
+          "difficulty": [2, 3],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-17",
+      "unitId": "unit-5",
+      "order": 17,
+      "title": "ICM & Bubble",
+      "subtitle": "When survival matters",
+      "phase": {
+        "teach": {
+          "title": "ICM and Bubble Play",
+          "body": "ICM (Independent Chip Model) measures the real-money value of your chips. Near payout jumps (the 'bubble'), chip EV and dollar EV diverge — losing all your chips costs more in $ than winning the same amount gains. This means you should tighten up and let shorter stacks bust.",
+          "keyPoints": [
+            "On the bubble, survival has extra value beyond chip accumulation",
+            "Avoid thin edges that risk elimination near pay jumps",
+            "Apply pressure to medium stacks who fear busting — they fold more"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-17-1",
+            "question": "You're on the bubble with 15bb in the SB. Two shorter stacks are at other tables. Should you shove ATo?",
+            "options": [
+              { "label": "Yes — use ICM pressure against the BB", "correct": true },
+              { "label": "No — always fold on the bubble", "correct": false },
+              { "label": "Min-raise instead", "correct": false },
+              { "label": "Only if the BB is short-stacked", "correct": false }
+            ],
+            "explanation": "With shorter stacks elsewhere, you can apply pressure. The BB will fold often because busting now would be costly — others might bust first."
+          },
+          {
+            "id": "q-17-2",
+            "question": "Why does ICM make you tighter near the bubble?",
+            "options": [
+              { "label": "The blinds get smaller", "correct": false },
+              { "label": "Losing chips costs more in dollar value than winning them gains", "correct": true },
+              { "label": "Your cards get worse", "correct": false },
+              { "label": "ICM doesn't affect strategy", "correct": false }
+            ],
+            "explanation": "ICM asymmetry: the dollar cost of busting exceeds the dollar gain of doubling up, so you need a bigger edge to justify risk."
+          }
+        ],
+        "play": {
+          "conceptTags": ["icm", "bubble", "short-stack"],
+          "difficulty": [3],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-18",
+      "unitId": "unit-6",
+      "order": 18,
+      "title": "3-Betting",
+      "subtitle": "Re-raising to isolate",
+      "phase": {
+        "teach": {
+          "title": "3-Betting Strategy",
+          "body": "A 3-bet is a re-raise over an open raise. 3-betting for value (with premium hands) and as a bluff (with suited blockers) keeps opponents guessing. In position, 3-bet to isolate the opener heads-up and deny the blinds from seeing a cheap flop.",
+          "keyPoints": [
+            "3-bet for value with hands like QQ+, AKs against wide openers",
+            "3-bet as a bluff with hands like A5s, KQs that have blockers",
+            "In position, 3-bet to isolate and deny multi-way pots"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-18-1",
+            "question": "CO opens, you're on the BTN with 99 and 25bb. What's the best play?",
+            "options": [
+              { "label": "Fold", "correct": false },
+              { "label": "Flat call", "correct": false },
+              { "label": "3-bet to ~8bb", "correct": true },
+              { "label": "Shove all-in", "correct": false }
+            ],
+            "explanation": "3-betting isolates the CO, denies the blinds cheap entry, and builds a pot with initiative and position."
+          },
+          {
+            "id": "q-18-2",
+            "question": "Why are suited aces (like A5s) good 3-bet bluff candidates?",
+            "options": [
+              { "label": "They always make flushes", "correct": false },
+              { "label": "They block AA/AK and can make the nuts if called", "correct": true },
+              { "label": "They confuse opponents", "correct": false },
+              { "label": "They are premium hands", "correct": false }
+            ],
+            "explanation": "Suited aces block the strongest hands (AA, AK), reducing the chance of facing a 4-bet, and can flop strong draws."
+          }
+        ],
+        "play": {
+          "conceptTags": ["3bet", "isolation", "preflop"],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-19",
+      "unitId": "unit-6",
+      "order": 19,
+      "title": "Bluff Catching",
+      "subtitle": "When to call down light",
+      "phase": {
+        "teach": {
+          "title": "Bluff Catching on the River",
+          "body": "A bluff catcher is a hand that beats bluffs but loses to value bets. On the river, if villain bets half pot, you need to be good 25% of the time. Estimate villain's bluff frequency: if they bluff often enough, call. Against tight, passive opponents, fold more — they underbluff.",
+          "keyPoints": [
+            "Use pot odds to determine how often you need to catch a bluff",
+            "Most recreational players bluff less than optimal — lean toward folding",
+            "Your hand only needs to beat bluffs, not value — don't worry about kicker"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-19-1",
+            "question": "Villain bets 9bb into an 18bb pot on the river. You have ace-high. What equity do you need to call?",
+            "options": [
+              { "label": "50%", "correct": false },
+              { "label": "25%", "correct": false },
+              { "label": "33%", "correct": true },
+              { "label": "10%", "correct": false }
+            ],
+            "explanation": "You call 9bb to win 27bb (18 + 9). 9/27 = 33%. If villain bluffs more than 33% of the time here, calling is profitable."
+          },
+          {
+            "id": "q-19-2",
+            "question": "Against a tight, passive opponent who rarely bluffs, you should:",
+            "options": [
+              { "label": "Call more often to keep them honest", "correct": false },
+              { "label": "Fold more often — they underbluff", "correct": true },
+              { "label": "Always raise as a bluff", "correct": false },
+              { "label": "It doesn't matter", "correct": false }
+            ],
+            "explanation": "Against underbluffers, your bluff catchers don't win often enough. Fold and save your chips for spots where you have clear value."
+          }
+        ],
+        "play": {
+          "conceptTags": ["bluff-catching", "pot-odds", "river"],
+          "count": 2
+        }
+      }
+    },
+    {
+      "id": "lesson-20",
+      "unitId": "unit-6",
+      "order": 20,
+      "title": "Mental Game",
+      "subtitle": "Tilt-proof your decisions",
+      "phase": {
+        "teach": {
+          "title": "Mental Game and Tilt Control",
+          "body": "Tilt destroys edge faster than any strategy leak. After bad beats, your brain shifts from logical decision-making to emotional reaction. The fix is simple: pause, breathe, and refocus on process over outcome. Great players lose pots — they just don't let it affect the next hand.",
+          "keyPoints": [
+            "Recognize tilt triggers: bad beats, long card-dead stretches, personal stress",
+            "Use a reset routine: pause, take a breath, review your process",
+            "Judge decisions by logic, not results — a good fold is still good if villain was bluffing"
+          ],
+          "visualType": null
+        },
+        "quiz": [
+          {
+            "id": "q-20-1",
+            "question": "You just lost a huge pot to a bad beat. Your next hand is 9c6c from CO. What should you do?",
+            "options": [
+              { "label": "Open-shove to win it back", "correct": false },
+              { "label": "Open wide to recoup losses", "correct": false },
+              { "label": "Fold and reset emotionally", "correct": true },
+              { "label": "Leave the tournament", "correct": false }
+            ],
+            "explanation": "9c6c is a clear fold from CO. After a bad beat, the temptation to 'win it back' leads to tilt plays. Fold, breathe, reset."
+          },
+          {
+            "id": "q-20-2",
+            "question": "What is the best way to evaluate your poker decisions?",
+            "options": [
+              { "label": "By how much you won or lost", "correct": false },
+              { "label": "By whether you followed correct strategy", "correct": true },
+              { "label": "By what your opponents think", "correct": false },
+              { "label": "By how lucky you got", "correct": false }
+            ],
+            "explanation": "Process over results. A mathematically correct call that loses is still a good decision. Focus on making the right play every time."
+          }
+        ],
+        "play": {
+          "conceptTags": ["mental-game", "tilt-control"],
+          "difficulty": [1],
+          "count": 2
+        }
+      }
+    }
+  ]
+}

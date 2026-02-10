@@ -2,7 +2,7 @@ import { cache } from "react";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { z } from "zod";
-import type { LectureConcept, Scenario } from "./types";
+import type { Curriculum, CurriculumLesson, LectureConcept, Scenario } from "./types";
 
 const lectureConceptSchema = z.object({
   id: z.string(),
@@ -92,4 +92,77 @@ export const listScenarios = async (filters: {
 export const getScenarioById = async (id: string): Promise<Scenario | undefined> => {
   const allScenarios = await getScenarios();
   return allScenarios.find((scenario) => scenario.id === id);
+};
+
+/* ── Curriculum ── */
+
+const quizQuestionSchema = z.object({
+  id: z.string(),
+  question: z.string(),
+  options: z.array(z.object({ label: z.string(), correct: z.boolean() })),
+  explanation: z.string()
+});
+
+const lessonPhaseSchema = z.object({
+  teach: z.object({
+    title: z.string(),
+    body: z.string(),
+    keyPoints: z.array(z.string()),
+    visualType: z.string().nullable().optional()
+  }),
+  quiz: z.array(quizQuestionSchema),
+  play: z.object({
+    conceptTags: z.array(z.string()),
+    difficulty: z.array(z.union([z.literal(1), z.literal(2), z.literal(3)])).optional(),
+    count: z.number()
+  }).nullable()
+});
+
+const curriculumLessonSchema = z.object({
+  id: z.string(),
+  unitId: z.string(),
+  order: z.number(),
+  title: z.string(),
+  subtitle: z.string(),
+  phase: lessonPhaseSchema
+});
+
+const curriculumUnitSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  lessonIds: z.array(z.string())
+});
+
+const curriculumSchema = z.object({
+  schemaVersion: z.literal(1),
+  units: z.array(curriculumUnitSchema),
+  lessons: z.array(curriculumLessonSchema)
+});
+
+export const getCurriculum = cache(async (): Promise<Curriculum> => {
+  const data = await readJson<unknown>(contentPath("curriculum", "curriculum.v1.json"));
+  return curriculumSchema.parse(data) as Curriculum;
+});
+
+export const getLessonById = async (id: string): Promise<CurriculumLesson | undefined> => {
+  const curriculum = await getCurriculum();
+  return curriculum.lessons.find((l) => l.id === id);
+};
+
+export const getScenariosForLesson = async (lesson: CurriculumLesson): Promise<Scenario[]> => {
+  if (!lesson.phase.play) return [];
+  const allScenarios = await getScenarios();
+  const { conceptTags, difficulty, count } = lesson.phase.play;
+
+  const matched = allScenarios.filter((s) => {
+    const tagMatch = s.conceptTags.some((t) => conceptTags.includes(t));
+    if (!tagMatch) return false;
+    if (difficulty && difficulty.length > 0) {
+      return (difficulty as number[]).includes(s.difficulty);
+    }
+    return true;
+  });
+
+  return matched.slice(0, count);
 };

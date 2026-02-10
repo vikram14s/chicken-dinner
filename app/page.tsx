@@ -17,11 +17,14 @@ export default async function DashboardPage() {
         <p className="kv">Skill Path</p>
         <h2>Coach Mode Tournament Trainer</h2>
         <p className="subtle">
-          You will pause on high-value decisions, commit to an action, and get immediate coaching tied to your lectures.
+          Follow the structured curriculum or jump into free play to practice scenarios tied to your lectures.
         </p>
         <div className="h-stack">
-          <Link className="button" href="/play">
-            Start Session
+          <Link className="button" href="/learn">
+            Open Curriculum
+          </Link>
+          <Link className="button ghost" href="/play">
+            Free Play
           </Link>
           <Link className="button ghost" href="/library">
             Browse Concepts

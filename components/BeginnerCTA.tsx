@@ -2,27 +2,43 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { isTutorialCompleted } from "@/lib/progressStorage";
+import { getCurriculumProgress } from "@/lib/progressStorage";
+import type { CurriculumProgress } from "@/lib/types";
 
 export function BeginnerCTA() {
-  const [show, setShow] = useState(false);
+  const [progress, setProgress] = useState<CurriculumProgress | null>(null);
 
   useEffect(() => {
-    setShow(!isTutorialCompleted());
+    setProgress(getCurriculumProgress());
   }, []);
 
-  if (!show) return null;
+  if (!progress) return null;
+
+  const completedCount = Object.values(progress.lessonRecords).filter((r) => r.completed).length;
+  const isNew = completedCount === 0;
+  const allDone = completedCount >= 20;
+
+  if (allDone) return null;
 
   return (
     <section className="panel panel-strong beginner-cta" style={{ gridColumn: "1 / -1" }}>
-      <p className="kv">New Here?</p>
-      <h2 style={{ marginTop: 0 }}>New to Poker? Start Here</h2>
+      <p className="kv">{isNew ? "New Here?" : "Continue Learning"}</p>
+      <h2 style={{ marginTop: 0 }}>
+        {isNew ? "Start the Poker Curriculum" : `Lesson ${completedCount + 1} awaits`}
+      </h2>
       <p className="subtle">
-        Learn the basics — hand rankings, table positions, card notation, and how chips work — in a quick 2-minute interactive tutorial before jumping into training.
+        {isNew
+          ? "Learn poker step by step — hand rankings, positions, math, and tournament strategy — in structured lessons with quizzes and practice."
+          : `You've completed ${completedCount}/20 lessons. Keep going to unlock more concepts and sharpen your game.`}
       </p>
-      <Link className="button" href="/play">
-        Start the Tutorial
-      </Link>
+      <div className="h-stack">
+        <Link className="button" href="/learn">
+          {isNew ? "Start Learning" : "Continue"}
+        </Link>
+        <Link className="button ghost" href="/play">
+          Free Play
+        </Link>
+      </div>
     </section>
   );
 }

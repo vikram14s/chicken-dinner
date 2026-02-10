@@ -90,3 +90,68 @@ export interface ScenarioResult {
   feedback: ScenarioFeedback;
   conceptTags: string[];
 }
+
+/* ── Curriculum types ── */
+
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: { label: string; correct: boolean }[];
+  explanation: string;
+}
+
+export interface LessonPhase {
+  teach: { title: string; body: string; keyPoints: string[]; visualType?: string };
+  quiz: QuizQuestion[];
+  play: { conceptTags: string[]; difficulty?: (1 | 2 | 3)[]; count: number } | null;
+}
+
+export interface CurriculumLesson {
+  id: string;
+  unitId: string;
+  order: number;
+  title: string;
+  subtitle: string;
+  phase: LessonPhase;
+}
+
+export interface CurriculumUnit {
+  id: string;
+  title: string;
+  description: string;
+  lessonIds: string[];
+}
+
+export interface Curriculum {
+  schemaVersion: 1;
+  units: CurriculumUnit[];
+  lessons: CurriculumLesson[];
+}
+
+export interface LessonRecord {
+  lessonId: string;
+  completed: boolean;
+  stars: 0 | 1 | 2 | 3;
+  bestStars: 0 | 1 | 2 | 3;
+  quizCorrect: number;
+  quizTotal: number;
+  scenariosCorrect: number;
+  scenariosTotal: number;
+  completedAt?: string;
+}
+
+export interface CurriculumProgress {
+  currentLessonId: string;
+  lessonRecords: Record<string, LessonRecord>;
+  unlockedLessonIds: string[];
+}
+
+export interface UserProgress {
+  schemaVersion: 1;
+  tier: "Rookie" | "Apprentice" | "Grinder" | "Shark";
+  attempts: DecisionAttempt[];
+  conceptStats: Record<string, ConceptStat>;
+  recentMistakes: string[];
+  tutorial?: TutorialState;
+  curriculum?: CurriculumProgress;
+}

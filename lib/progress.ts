@@ -66,6 +66,20 @@ export const appendAttempt = (
   };
 };
 
+export const computeLessonStars = (
+  quizCorrect: number,
+  quizTotal: number,
+  scenariosCorrect: number,
+  scenariosTotal: number
+): 0 | 1 | 2 | 3 => {
+  const perfectQuiz = quizTotal > 0 && quizCorrect === quizTotal;
+  const perfectScenarios = scenariosTotal === 0 || scenariosCorrect === scenariosTotal;
+
+  if (perfectQuiz && perfectScenarios) return 3;
+  if (perfectQuiz) return 2;
+  return 1;
+};
+
 export const pickWeakConcepts = (progress: UserProgress, limit = 3): string[] => {
   const entries = Object.entries(progress.conceptStats);
   const sorted = entries

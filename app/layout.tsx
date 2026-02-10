@@ -36,7 +36,8 @@ export default function RootLayout({
             </div>
             <nav className="topnav">
               <Link href="/">Dashboard</Link>
-              <Link href="/play">Play</Link>
+              <Link href="/learn">Learn</Link>
+              <Link href="/play">Free Play</Link>
               <Link href="/review">Review</Link>
               <Link href="/library">Library</Link>
             </nav>
